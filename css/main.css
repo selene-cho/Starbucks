@@ -15,13 +15,13 @@ a {
 
 /* HEADER */
 header {
-  background-color: royalblue;
+  background-color: #f6f5f0;
+  border-bottom: 1px solid #c8c8c8;
 }
 header .inner {
   width: 1100px;
   height: 120px;
   margin: 0 auto;
-  background-color: orange;
   position: relative;
 }
 header .logo {
@@ -33,9 +33,12 @@ header .logo {
   /* 지정해된 높이값(반드시 명시되어 있어야 함)과 top, bottom 기준점을 바탕으로 auto로 수직 margin 계산 */
   left: 0;
   margin: auto;
-  display: none;
 }
 header .sub-menu {
+  position: absolute;
+  top: 10px;
+  right: 0;
+  display: flex;
 }
 header .sub-menu ul.menu {
   font-family: Arial, sans-serif;
@@ -70,8 +73,35 @@ header .sub-menu ul.menu li a:hover {
   color: #000;
 }
 header .sub-menu .search {
+  height: 34px;
+  position: relative; /* .material-icons의 위치상 부모요소 될 수 있도록 추가 */
 }
 header .sub-menu .search input {
+  width: 36px;
+  height: 34px;
+  padding: 4px 10px;
+  border: 1px solid #ccc;
+  box-sizing: border-box;
+  border-radius: 5px;
+  outline: none; /* input 클릭했을 때 내부 라인 없앰 */
+  background-color: #fff; /* 브라우저에 따라 기본 input 색상 다를 수 있어서 흰색 지정 */
+  color: #777;
+  font-size: 12px;
+  transition: width 0.4s; /* 요소 자연스럽게 변화하도록 전환효과 추가- 기본 all */
+}
+header .sub-menu .search input:focus {
+  width: 190px;
+  border-color: #669900;
 }
 header .sub-menu .search .material-icons {
+  height: 24px;
+  position: absolute; /* 구조적인 부모요소에 position 값 있는지 확인! */
+  top: 0;
+  bottom: 0;
+  right: 5px;
+  margin: auto;
+  transition: 0.4s; /* 0.4초 동안 돋보기 천천히 사라짐 */
+}
+header .sub-menu .search.focused .material-icons {
+  opacity: 0; /* 돋보기 투명하게 만들어서 안보이게 */
 }
