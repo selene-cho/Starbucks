@@ -47,3 +47,15 @@ window.addEventListener(
 // window.scrollY : 위에서 부터 화면이 몇 px 지점에 위치하는지 알 수 있음
 
 // 자연스럽게 애니메이션 보이게
+
+/** VISUAL SECTION image 순차적 애니메이션 */
+const fadeEls = document.querySelectorAll('.visual .fade-in');
+// fadeEls 순차적으로 하나씩 반복되면서 함수 실행 (여기서는 4개)
+fadeEls.forEach(function (fadeEl, index) {
+  // gsap.to(요소, 지속시간, 옵션)
+  gsap.to(fadeEl, 1, {
+    delay: (index + 1) * 0.7,
+    // index 0부터 시작하니까 (index + 1) -> 0.7, 1.4, 2.1, 2.8초 뒤에 딜레이되며 시작
+    opacity: 1,
+  });
+});
