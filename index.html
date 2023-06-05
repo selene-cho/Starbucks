@@ -70,6 +70,13 @@
       crossorigin="anonymous"
       referrerpolicy="no-referrer"
     ></script>
+    <!-- swiper cdn 슬라이드 외부 라이브러리-->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css"
+    />
+
+    <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
     <script defer src="./js/main.js"></script>
   </head>
 
@@ -509,7 +516,29 @@
         <div class="inner">
           <div class="inner__left">
             <h2>공지사항</h2>
-            <div class="swiper-container"></div>
+            <div class="swiper">
+              <div class="swiper-wrapper">
+                <div class="swiper-slide">
+                  <a href="javascript:void(0)"> 개인정보처리방침 개정 안내 </a>
+                </div>
+                <div class="swiper-slide">
+                  <a href="javascript:void(0)">
+                    스타벅스 코리아 사칭 (NFT 관련 등) 홈페이지 및 이메일 주의
+                    안내
+                  </a>
+                </div>
+                <div class="swiper-slide">
+                  <a href="javascript:void(0)">
+                    시스템 개선 및 서비스 점검 안내
+                  </a>
+                </div>
+                <div class="swiper-slide">
+                  <a href="javascript:void(0)">
+                    Summer 시즌 사이렌 오더 음료 기본 설정 변경 안내
+                  </a>
+                </div>
+              </div>
+            </div>
             <a href="javascript:void(0)" class="notice-line__more">
               <div class="material-icons">add_circle</div>
             </a>

@@ -1,5 +1,4 @@
 /** css input:focus만으로 돋보기 클릭했을 때 input 늘어나지 않는 것 자바스크립트로 해결 */
-
 const searchEl = document.querySelector('.search');
 // '.search input'으로 작성하지 않고 위에 변수 지정하여 찾은것 사용하여 최적화
 const searchInputEl = searchEl.querySelector('input');
@@ -58,4 +57,12 @@ fadeEls.forEach(function (fadeEl, index) {
     // index 0부터 시작하니까 (index + 1) -> 0.7, 1.4, 2.1, 2.8초 뒤에 딜레이되며 시작
     opacity: 1,
   });
+});
+
+/** NOTICE SECTION Swiper */
+// new Swiper(선택자, 옵션)
+const swiper = new Swiper('.notice-line .swiper', {
+  direction: 'vertical',
+  autoplay: true,
+  loop: true,
 });
