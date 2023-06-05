@@ -61,8 +61,26 @@ fadeEls.forEach(function (fadeEl, index) {
 
 /** NOTICE SECTION Swiper */
 // new Swiper(선택자, 옵션)
-const swiper = new Swiper('.notice-line .swiper', {
+new Swiper('.notice-line .swiper', {
   direction: 'vertical',
   autoplay: true,
   loop: true,
+});
+
+new Swiper('.promotion .swiper', {
+  slidesPerView: 3, // 한번에 보여줄 슬라이드 개수
+  spaceBetween: 10, // 슬라이드 사이 여백
+  centeredSlides: true, // 1번 슬라이드가 가운데 보이도록
+  loop: true,
+  autoplay: {
+    delay: 5000, // ms단위, 5초 뒤에 자동으로 넘어가도록
+  },
+  pagination: {
+    el: '.promotion .swiper-pagination', // 페이지 번호 요소 선택자
+    clickable: true, // 사용자의 페이지 번호 요소 제어 가능 여부
+  },
+  navigation: {
+    prevEl: '.promotion .swiper-button-prev', // 이전 슬라이드 보는 버튼
+    nextEl: '.promotion .swiper-button-next', // 다음 슬라이드 보는 버튼
+  },
 });
