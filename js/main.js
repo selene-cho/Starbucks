@@ -70,17 +70,33 @@ new Swiper('.notice-line .swiper', {
 new Swiper('.promotion .swiper', {
   slidesPerView: 3, // 한번에 보여줄 슬라이드 개수
   spaceBetween: 10, // 슬라이드 사이 여백
-  centeredSlides: true, // 1번 슬라이드가 가운데 보이도록
+  centeredSlides: true, // 1번 슬라이드가 가운데 보이기
   loop: true,
   autoplay: {
-    delay: 5000, // ms단위, 5초 뒤에 자동으로 넘어가도록
+    delay: 3000, // ms단위, 5초 뒤에 자동으로 넘어가도록
+    // pauseOnMouseEnter: true, // 마우스 올려놓으면 일시정지
   },
   pagination: {
     el: '.promotion .swiper-pagination', // 페이지 번호 요소 선택자
     clickable: true, // 사용자의 페이지 번호 요소 제어 가능 여부
   },
   navigation: {
-    prevEl: '.promotion .swiper-button-prev', // 이전 슬라이드 보는 버튼
-    nextEl: '.promotion .swiper-button-next', // 다음 슬라이드 보는 버튼
+    prevEl: '.promotion .swiper-prev', // 이전 슬라이드 보는 버튼
+    nextEl: '.promotion .swiper-next', // 다음 슬라이드 보는 버튼
   },
+});
+
+/** NOTICE SECTION promotion 토글 */
+const promotionEl = document.querySelector('.promotion');
+const promotionToggleBtn = document.querySelector('.toggle-promotion');
+let isHidePromotion = false;
+promotionToggleBtn.addEventListener('click', function () {
+  isHidePromotion = !isHidePromotion;
+  if (isHidePromotion) {
+    // 숨김 처리! isHidePromotion = true
+    promotionEl.classList.add('hide');
+  } else {
+    // 보임 처리! isHidePromotion = false
+    promotionEl.classList.remove('hide');
+  }
 });
