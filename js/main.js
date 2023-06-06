@@ -100,3 +100,31 @@ promotionToggleBtn.addEventListener('click', function () {
     promotionEl.classList.remove('hide');
   }
 });
+
+/** YOUTUBE VIDEO SECTION floating */
+
+// 범위 랜덤 함수 (소수점 2자리까지)
+function random(min, max) {
+  // `.toFixed()`를 통해 반환된 문자데이터를
+  // `parseFloat()`를 통해 소수점을 가지는 숫자데이터로 반환
+  return parseFloat((Math.random() * (max - min) + min).toFixed(2));
+}
+
+function floatingObject(selector, delay, size) {
+  // gsap.to(요소, 지속시간, 옵션)
+  gsap.to(
+    selector, // 선택자
+    random(1.5, 2.5), // 애니메이션 동작 시간
+    {
+      // 옵션
+      y: size, // y축 20px 만큼 내려옴
+      repeat: -1, // -1을 사용하면 무한반복
+      yoyo: true, // 한번 재생된 애니메이션 뒤로 다시 재생
+      ease: Power1.easeInOut, // gsap easing
+      delay: random(0, delay), // 몇초뒤에 애니메이션 실행할 것인지
+    }
+  );
+}
+floatingObject('.floating1', 1, 15);
+floatingObject('.floating2', 0.5, 15);
+floatingObject('.floating3', 1.5, 20);
