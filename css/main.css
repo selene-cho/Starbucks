@@ -616,8 +616,12 @@ header .badges .badge {
   background-image: url('../images/favorite_bg.jpg');
   background-repeat: no-repeat;
   background-position: center;
-  background-attachment: fixed; /* 그림 고정되어 있어서 스크롤 하면 가려진 부분 보임 */
-  background-size: cover;
+  background-attachment: fixed;
+  /*
+  * 배경이미지 뷰포트 기준으로 출력, 
+  * 요소 스크롤 되어도 같이 움직이지 않고, 배경에 그림 고정.
+  * 즉, 스크롤하면 가려진 부분 보임 */
+  background-size: cover; /* 뷰포트에 더 넓은 너비에 맞춰서 나올수 있도록 함 */
 }
 .pick-your-favorite .inner {
   padding: 110px 0;
@@ -634,4 +638,51 @@ header .badges .badge {
 }
 .pick-your-favorite .text-group .description {
   margin-bottom: 40px;
+}
+
+/* RESERVE STORE */
+.reserve-store {
+  background-image: url('../images/reserve_store_bg.jpg');
+  background-repeat: no-repeat;
+  background-position: center;
+  background-attachment: fixed;
+  background-size: cover;
+}
+.reserve-store .inner {
+  height: 600px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.reserve-store .medal {
+  width: 334px;
+  height: 334px;
+  perspective: 600px; /* 원근 거리 */
+}
+.reserve-store .medal .front,
+.reserve-store .medal .back {
+  width: 334px;
+  height: 334px;
+  position: absolute;
+  backface-visibility: hidden; /* 요소 뒤집어졌을때 뒷면 안보이도록 */
+  transition: 1s;
+}
+.reserve-store .medal .front {
+  transform: rotateY(0deg);
+}
+.reserve-store .medal:hover .front {
+  transform: rotateY(180deg);
+}
+.reserve-store .medal .back {
+  transform: rotateY(-180deg);
+}
+.reserve-store .medal:hover .back {
+  transform: rotateY(0deg);
+}
+.reserve-store .medal .back .btn {
+  position: absolute;
+  top: 240px;
+  left: 0;
+  right: 0;
+  margin: auto;
 }
