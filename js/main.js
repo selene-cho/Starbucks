@@ -73,7 +73,7 @@ new Swiper('.promotion .swiper', {
   centeredSlides: true, // 1번 슬라이드가 가운데 보이기
   loop: true,
   autoplay: {
-    delay: 3000, // ms단위, 5초 뒤에 자동으로 넘어가도록
+    delay: 5000, // ms단위, 5초 뒤에 자동으로 넘어가도록
     // pauseOnMouseEnter: true, // 마우스 올려놓으면 일시정지
   },
   pagination: {
