@@ -384,7 +384,6 @@ header .badges .badge {
   font-size: 30px;
 }
 .notice .promotion {
-  width: 100%;
   height: 693px;
   background-color: #f6f5ef;
   position: relative;
@@ -397,7 +396,6 @@ header .badges .badge {
 .notice .promotion .swiper {
   position: absolute;
   width: calc(819px * 3 + 20px);
-  /* height: 553px; */
   height: 653px;
   top: 40px;
   left: 50%;
@@ -445,7 +443,7 @@ header .badges .badge {
   border: 2px solid #333;
   border-radius: 50%;
   position: absolute;
-  top: 300px;
+  top: 250px;
   z-index: 1;
   cursor: pointer;
   outline: none;
