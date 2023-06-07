@@ -21,6 +21,7 @@ searchInputEl.addEventListener('blur', function () {
 
 /** 전역배지 */
 const badgeEl = document.querySelector('header .badges');
+const toTopEl = document.querySelector('#to-top');
 
 window.addEventListener(
   'scroll',
@@ -33,19 +34,34 @@ window.addEventListener(
         opacity: 0,
         display: 'none',
       });
+      // to-top 버튼 보이기
+      gsap.to(toTopEl, 0.2, {
+        x: 0, // 원래 위치로 돌리기
+      });
     } else {
       // 배지 보이기
       gsap.to(badgeEl, 0.6, {
         opacity: 1,
         display: 'block',
       });
+      // to-top 버튼 숨기기
+      gsap.to(toTopEl, 0.2, {
+        x: 100, // 오른쪽 화면 바깥으로 숨기기
+      });
     }
   }, 300) // 1000ms = 1s -> 300 = 0.3s 단위로 부하를 줘서, 함수가 한꺼번에 실행되는 것 막음
 );
 //_.throttle(실행할 함수, ms단위 시간) : 일정시간에 한번씩만 실행되도록 함 // scroll 이벤트를 통해 작업할 때 많이 사용
 // window.scrollY : 위에서 부터 화면이 몇 px 지점에 위치하는지 알 수 있음
-
 // 자연스럽게 애니메이션 보이게
+
+/* to-top 버튼 선택하면 화면 최상단으로 이동하는 기능 */
+toTopEl.addEventListener('click', function () {
+  gsap.to(window, 0.7, {
+    // 움직여지는 시간
+    scrollTo: 0, // 화면 0px 지점으로 이동
+  });
+});
 
 /** VISUAL SECTION image 순차적 애니메이션 */
 const fadeEls = document.querySelectorAll('.visual .fade-in');
