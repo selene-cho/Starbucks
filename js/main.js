@@ -128,3 +128,27 @@ function floatingObject(selector, delay, size) {
 floatingObject('.floating1', 1, 15);
 floatingObject('.floating2', 0.5, 15);
 floatingObject('.floating3', 1.5, 20);
+
+/** ScrollMagic cdn
+ * 특정 구간 보이기 시작하면 애니메이션 시작
+ */
+const spyEls = document.querySelectorAll('section.scroll-spy');
+spyEls.forEach(function (spyEl) {
+  // 찾은 요소 반복
+  new ScrollMagic.Scene({
+    // ScrollMagic 라이브러리에 메소드체이닝 방식으로 추가
+    // Scene(): 특정 요소 감시하는 옵션 지정해주는 메소드
+    triggerElement: spyEl, // ScrollMagic 통해서 보여지는지 여부를 감시할 요소를 지정
+    triggerHook: 0.8, // 뷰포트 시작지점 - 맨위: 0, 맨밑: 1 -> 감시하다가 해당 요소 0.8 지점에 걸리면 setClassToggle() 실행
+  })
+    .setClassToggle(spyEl, 'show')
+    /* HTML class 속성을 넣었다 뺐다(Toggle 제어해주는 역할
+     * spyEl: class toggle할 요소 지정
+     * 'show': toggle할 class 이름 지정 (무슨 클래스 넣었다 뺐다 할건지)
+     */
+    .addTo(new ScrollMagic.Controller());
+  /*
+   * addTo(): ScrollMagic 라이브러리가 필요한 '컨트롤러'라는 개념 추가하기 위해 메소드 사용
+   * new ScrollMagic.Controller(): ScrollMagic에서 기본적으로 추가한 옵션들을 내부의 컨트롤러에 내용을 할당해서 실제로 동작할 수 있는 구조를 만들어주는 용도로 사용됨
+   */
+});
