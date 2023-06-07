@@ -164,3 +164,8 @@ spyEls.forEach(function (spyEl) {
    * new ScrollMagic.Controller(): 추가한 옵션들을 내부의 컨트롤러에 내용을 할당해서 실제로 동작할 수 있는 구조를 만들어주는 용도로 사용됨
    */
 });
+
+/* FOOTER - 연도 자동 계산 */
+const thisYear = document.querySelector('.this-year');
+thisYear.textContent =
+  new Date().getFullYear(); /* textContent 안에 있는 값 알아내거나 값 지정 가능 */
