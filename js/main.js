@@ -59,7 +59,8 @@ fadeEls.forEach(function (fadeEl, index) {
   });
 });
 
-/** NOTICE SECTION Swiper */
+/** Swiper */
+
 // new Swiper(선택자, 옵션)
 new Swiper('.notice-line .swiper', {
   direction: 'vertical',
@@ -86,7 +87,19 @@ new Swiper('.promotion .swiper', {
   },
 });
 
+new Swiper('.awards .swiper', {
+  autoplay: true,
+  loop: true,
+  spaceBetween: 30,
+  slidesPerView: 5,
+  navigation: {
+    prevEl: '.awards .swiper-prev',
+    nextEl: '.awards .swiper-next',
+  },
+});
+
 /** NOTICE SECTION promotion 토글 */
+
 const promotionEl = document.querySelector('.promotion');
 const promotionToggleBtn = document.querySelector('.toggle-promotion');
 let isHidePromotion = false;
@@ -130,6 +143,7 @@ floatingObject('.floating2', 0.5, 15);
 floatingObject('.floating3', 1.5, 20);
 
 /** ScrollMagic cdn 특정 구간 보이기 시작하면 애니메이션 시작하는 외부 라이브러리 */
+
 const spyEls = document.querySelectorAll('section.scroll-spy');
 spyEls.forEach(function (spyEl) {
   // 찾은 요소 반복
